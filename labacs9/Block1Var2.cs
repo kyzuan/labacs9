@@ -65,11 +65,31 @@ namespace labacs9
                         break;
                     }
                 }
-            }    
+            }
+            f1.nom = f1.nom * (nok / f1.denom);
+            f2.nom = f2.nom * (nok / f2.denom);
             MyFrac res = new MyFrac(f1.nom+f2.nom, nok);
             return res;
         }
-        
+        static MyFrac Minus(MyFrac f1, MyFrac f2)
+        { 
+            long nok = 0;
+            for (int i = 0; i < (f2.denom * f1.denom + 1); i++)
+            {
+                if (i % f1.denom == 0 && i % f2.denom == 0)
+                {
+                    nok = i;
+                    if (i != 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            f1.nom = f1.nom * (nok / f1.denom);
+            f2.nom = f2.nom * (nok / f2.denom);
+            MyFrac res = new MyFrac(f1.nom - f2.nom, nok);
+            return res;
+        }
         public static void DoBlock()
         {
             Console.WriteLine("Введите значение числителя дроби:");
@@ -90,15 +110,18 @@ namespace labacs9
             MyFrac f1 = new MyFrac(n1, d1);
             Console.WriteLine("Полученная дробь: ");
             Console.WriteLine(f1.ToString());
-            Console.WriteLine("Введите значение числителя первой дроби:");
+            Console.WriteLine("Введите значение числителя второй дроби:");
             long n2 = long.Parse(Console.ReadLine());
-            Console.WriteLine("Введите значение знаменателя первой дроби:");
+            Console.WriteLine("Введите значение знаменателя второй дроби:");
             long d2 = long.Parse(Console.ReadLine());
             MyFrac f2 = new MyFrac(n2, d2);
             Console.WriteLine("Полученная дробь: ");
             Console.WriteLine(f2.ToString());
             Console.WriteLine("Результат сложения двух дробей: ");
             MyFrac res = Plus(f1, f2);
+            Console.WriteLine(res.ToString());
+            Console.WriteLine("Результат вычитания двух дробей: ");
+            res = Minus(f1, f2);
             Console.WriteLine(res.ToString());
 
 

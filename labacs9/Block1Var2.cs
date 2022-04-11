@@ -90,6 +90,16 @@ namespace labacs9
             MyFrac res = new MyFrac(f1.nom - f2.nom, nok);
             return res;
         }
+        static MyFrac Multiply(MyFrac f1, MyFrac f2)
+        {
+            MyFrac res = new MyFrac(f1.nom * f2.nom, f1.denom * f2.denom);
+            return res;
+        }
+        static MyFrac Divide(MyFrac f1, MyFrac f2)
+        {
+            MyFrac res = new MyFrac(f1.nom * f2.denom, f1.denom * f2.nom);
+            return res;
+        }
         public static void DoBlock()
         {
             Console.WriteLine("Введите значение числителя дроби:");
@@ -97,10 +107,8 @@ namespace labacs9
             Console.WriteLine("Введите значение знаменателя дроби:");
             long d = long.Parse(Console.ReadLine());
             MyFrac f = new MyFrac(n, d);
-            Console.WriteLine("Полученная дробь: ");
-            Console.WriteLine(f.ToString());
-            Console.WriteLine("Истинное значение дроби: ");
-            Console.WriteLine(DoubleValue(f));
+            Console.WriteLine($"Полученная дробь: {f.ToString()} ");  
+            Console.WriteLine($"Истинное значение дроби: {DoubleValue(f)}");
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("Введите значение числителя первой дроби:");
@@ -108,25 +116,21 @@ namespace labacs9
             Console.WriteLine("Введите значение знаменателя первой дроби:");
             long d1 = long.Parse(Console.ReadLine());
             MyFrac f1 = new MyFrac(n1, d1);
-            Console.WriteLine("Полученная дробь: ");
-            Console.WriteLine(f1.ToString());
+            Console.WriteLine($"Полученная дробь: {f1.ToString()} ");           
             Console.WriteLine("Введите значение числителя второй дроби:");
             long n2 = long.Parse(Console.ReadLine());
             Console.WriteLine("Введите значение знаменателя второй дроби:");
             long d2 = long.Parse(Console.ReadLine());
             MyFrac f2 = new MyFrac(n2, d2);
-            Console.WriteLine("Полученная дробь: ");
-            Console.WriteLine(f2.ToString());
-            Console.WriteLine("Результат сложения двух дробей: ");
+            Console.WriteLine($"Полученная дробь: {f2.ToString()}");
             MyFrac res = Plus(f1, f2);
-            Console.WriteLine(res.ToString());
-            Console.WriteLine("Результат вычитания двух дробей: ");
+            Console.WriteLine($"Результат сложения двух дробей: {res.ToString()} ");
             res = Minus(f1, f2);
-            Console.WriteLine(res.ToString());
-
-
-
-
+            Console.WriteLine($"Результат вычитания двух дробей: {res.ToString()} ");
+            res = Multiply(f1, f2);
+            Console.WriteLine($"Результат умножения двух дробей: {res.ToString()} ");
+            res = Divide(f1, f2);
+            Console.WriteLine($"Результат деления двух дробей: {res.ToString()} ");
         }
     }
 }

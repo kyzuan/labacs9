@@ -65,9 +65,16 @@ namespace labacs9
             long d = long.Parse(Console.ReadLine());    
             MyFrac f = new MyFrac(n,d);
             Console.WriteLine("Резульат сокращения дроби: ");
-            Console.WriteLine(f.CutFrac(f).ToString());
-            
+            Console.WriteLine(f.CutFrac(f).ToString());          
         }
+        static double DoubleValue(MyFrac f)
+        {
+            double dnom = double.Parse(f.nom.ToString());
+            double ddenom = double.Parse(f.denom.ToString());
+            double res = dnom / ddenom;
+            return res; 
+        }
+
         public static void DoBlock()
         {          
             ResultOfStructWork();
@@ -77,7 +84,12 @@ namespace labacs9
             Console.WriteLine("Введите значение знаменателя: ");
             long d = long.Parse(Console.ReadLine());
             MyFrac f = new MyFrac(n, d);
+            Console.WriteLine("Полученная дробь:");
             Console.WriteLine(f.ToString());
+            //Место для пропущеного метода
+            Console.WriteLine("Истинное значение дроби: ");
+            Console.WriteLine(DoubleValue(f));
+            
 
         }
     }

@@ -1,0 +1,16 @@
+C:\Users\heivus\source\repos\labacs9\labacs9\bin\Debug\net5.0\labacs9.exe
+C:\Users\heivus\source\repos\labacs9\labacs9\bin\Debug\net5.0\labacs9.deps.json
+C:\Users\heivus\source\repos\labacs9\labacs9\bin\Debug\net5.0\labacs9.runtimeconfig.json
+C:\Users\heivus\source\repos\labacs9\labacs9\bin\Debug\net5.0\labacs9.runtimeconfig.dev.json
+C:\Users\heivus\source\repos\labacs9\labacs9\bin\Debug\net5.0\labacs9.dll
+C:\Users\heivus\source\repos\labacs9\labacs9\bin\Debug\net5.0\labacs9.pdb
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.csproj.AssemblyReference.cache
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.AssemblyInfoInputs.cache
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.AssemblyInfo.cs
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.csproj.CoreCompileInputs.cache
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.dll
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\refint\labacs9.dll
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.pdb
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\labacs9.genruntimeconfig.cache
+C:\Users\heivus\source\repos\labacs9\labacs9\obj\Debug\net5.0\ref\labacs9.dll

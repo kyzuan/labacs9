@@ -18,10 +18,14 @@ namespace labacs9
                 denom = Math.Abs(denom);
                 nom = -nom; 
             }
-            int nod = GetNod(nom, denom);
-            nom = nom / nod;
-            denom = denom / nod;
-            
+        
+        }
+        public MyFrac CutFrac(MyFrac f)
+        {  
+            int nod = GetNod(f.nom, f.denom);
+            f.nom = f.nom / nod;
+            f.denom = f.denom / nod;
+            return f;
         }
         public static int GetNod(long n, long d) 
         {
@@ -54,14 +58,26 @@ namespace labacs9
     {
         public static void ResultOfStructWork()
         {
+            Console.WriteLine("Проверка работы структуры на сокращение дроби.");
+            Console.WriteLine("Введите значение числителя: ");
             long n = long.Parse(Console.ReadLine());
+            Console.WriteLine("Введите значение знаменателя: ");
             long d = long.Parse(Console.ReadLine());    
             MyFrac f = new MyFrac(n,d);
-            Console.WriteLine(f.ToString());
+            Console.WriteLine("Резульат сокращения дроби: ");
+            Console.WriteLine(f.CutFrac(f).ToString());
+            
         }
         public static void DoBlock()
-        {
+        {          
             ResultOfStructWork();
+            Console.WriteLine("Исполнение основных методов блока.");
+            Console.WriteLine("Введите значение числителя: ");
+            long n = long.Parse(Console.ReadLine());
+            Console.WriteLine("Введите значение знаменателя: ");
+            long d = long.Parse(Console.ReadLine());
+            MyFrac f = new MyFrac(n, d);
+            Console.WriteLine(f.ToString());
 
         }
     }

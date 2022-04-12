@@ -100,6 +100,25 @@ namespace labacs9
             MyFrac res = new MyFrac(f1.nom * f2.denom, f1.denom * f2.nom);
             return res;
         }
+        static MyFrac CalcSum1(int n)
+        {
+            MyFrac res = new MyFrac(0, 1);
+            for (int i = 1; i <= n; i++)
+            {
+                res = Plus(res, new MyFrac(1, i*(i+1)));
+            }
+            return res;
+        }
+        static MyFrac CalcSum2(int n)
+        {
+            MyFrac res = new MyFrac(1, 1);
+            for (int i = 2; i <= n; i++)
+            {
+                MyFrac minus = Minus(new MyFrac(1,1), new MyFrac(1, i * i));
+                res = Multiply(minus, res);
+            }          
+            return res;
+        }
         public static void DoBlock()
         {
             Console.WriteLine("Введите значение числителя дроби:");
@@ -131,6 +150,15 @@ namespace labacs9
             Console.WriteLine($"Результат умножения двух дробей: {res.ToString()} ");
             res = Divide(f1, f2);
             Console.WriteLine($"Результат деления двух дробей: {res.ToString()} ");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"Введите значение n, для подсчета суммы дробей от 1 до n(1/n(n+1)) и (1-1/n*n)*(1-1/n*n): ");
+            int num = int.Parse(Console.ReadLine());
+            res = CalcSum1(num);
+            Console.WriteLine($"Результат: {res.ToString()}");
+            res = CalcSum2(num);
+            Console.WriteLine($"Результат: {res.ToString()}");
+
         }
     }
 }

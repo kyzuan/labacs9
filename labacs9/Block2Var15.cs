@@ -38,13 +38,35 @@ namespace labacs9
     }
     internal class Block2Var15
     {
-       
-      
+       static Student[] ReadData(string path)
+        {
+            int count = System.IO.File.ReadAllLines(path).Length;
+            Student[] arrayFromStudents = new Student[count];
+            StreamReader read = new StreamReader(path);
+            for (int i = 0; i < arrayFromStudents.Length; i++)
+            {
+                arrayFromStudents[i] = new Student(read.ReadLine());
+            }
+            read.Close();
+            return arrayFromStudents;
+        }
+        static void ResultsOfBlock(Student[] arrayOfStudents)
+        {
+            for (int i = 0; i < arrayOfStudents.Length; i++)
+            {
+                if (arrayOfStudents[i].mathematicsMark >= 3 && arrayOfStudents[i].physicsMark >= 3 && arrayOfStudents[i].informaticsMark >= 3)
+                {
+                    Console.WriteLine($"{arrayOfStudents[i].surName} {arrayOfStudents[i].firstName} {arrayOfStudents[i].patronymic}. Стипендия: {arrayOfStudents[i].scholarship} грн.");
+                }
+            }
+            
+        }
         public static void DoBlock()
         {
-            
-
-
+            Console.WriteLine("Результат исполнения блока.");
+            string path = "dataKuz.txt";
+            ResultsOfBlock(ReadData(path));
+            Console.ReadKey();
         }
     }
 }

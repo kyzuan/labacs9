@@ -45,8 +45,9 @@ namespace labacs9
     }
     internal class Block1Var2
     {
-        static string ToStringWithIntegerPart(MyFrac f)
+        static string ToStringWithIntegerPart(MyFrac fn)
         {
+            MyFrac f = fn;
             bool haveMinus = false;
             string res = string.Empty;
             if (f.nom < 0 || f.denom < 0)
@@ -185,6 +186,7 @@ namespace labacs9
             Console.WriteLine($"Результат: {res.ToString()}");
             res = CalcSum2(num);
             Console.WriteLine($"Результат: {res.ToString()}");
+            Console.ReadKey();
 
         }
     }

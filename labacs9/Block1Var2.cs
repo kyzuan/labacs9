@@ -45,6 +45,32 @@ namespace labacs9
     }
     internal class Block1Var2
     {
+        static string ToStringWithIntegerPart(MyFrac f)
+        {
+            bool haveMinus = false;
+            string res = string.Empty;
+            if (f.nom < 0 || f.denom < 0)
+            {
+                f.nom = Math.Abs(f.nom);
+                f.denom = Math.Abs(f.denom);
+                haveMinus = true;
+            }
+            if (f.denom > f.nom)
+            {
+                res = "Дробь правильная, извлечь целую часть невозможно.";
+            }
+            int num = (int)(f.nom / f.denom);
+            int ostacha = (int)(f.nom % f.denom);
+            if (haveMinus == true)
+            {
+                res = $"-({num}+{ostacha}/{f.denom})";
+            }
+            else
+            {
+                res = $"({num}+{ostacha}/{f.denom})";
+            }
+            return res;
+        }
         static double DoubleValue(MyFrac f)
         {
             double result;
@@ -126,7 +152,8 @@ namespace labacs9
             Console.WriteLine("Введите значение знаменателя дроби:");
             long d = long.Parse(Console.ReadLine());
             MyFrac f = new MyFrac(n, d);
-            Console.WriteLine($"Полученная дробь: {f.ToString()} ");  
+            Console.WriteLine($"Полученная дробь: {f.ToString()} ");
+            Console.WriteLine(ToStringWithIntegerPart(f));
             Console.WriteLine($"Истинное значение дроби: {DoubleValue(f)}");
             Console.ReadKey();
             Console.Clear();

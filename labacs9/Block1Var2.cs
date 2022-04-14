@@ -98,6 +98,7 @@ namespace labacs9
             MyFrac res = new MyFrac(f1.nom+f2.nom, nok);
             return res;
         }
+        //
         static MyFrac Minus(MyFrac f1, MyFrac f2)
         { 
             long nok = 0;

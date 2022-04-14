@@ -227,6 +227,7 @@ namespace labacs9
                         myTime = new MyTime(hour, min, sec);
                         break;
                 }
+                Console.WriteLine();
                 Console.ReadKey();
                 Console.Clear();
             }

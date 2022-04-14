@@ -183,9 +183,9 @@ namespace labacs9
             Console.WriteLine($"Введите значение n, для подсчета суммы дробей от 1 до n(1/n(n+1)) и (1-1/n*n)*(1-1/n*n): ");
             int num = int.Parse(Console.ReadLine());
             res = CalcSum1(num);
-            Console.WriteLine($"Результат: {res.ToString()}");
+            Console.WriteLine($"Результат = (n/n+1): {res.ToString()}.");
             res = CalcSum2(num);
-            Console.WriteLine($"Результат: {res.ToString()}");
+            Console.WriteLine($"Результат = (n+1)/(2n): {res.ToString()}.");
             Console.ReadKey();
 
         }

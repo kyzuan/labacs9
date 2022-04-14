@@ -13,7 +13,7 @@ namespace labacs9
             }
             public override string ToString()
             {
-                TimeSpan t = new TimeSpan(hour, minute, second);
+                TimeSpan t = new TimeSpan(hour, minute,second);
                 return t.ToString((@"hh\:mm\:ss"));
             }
         };
@@ -76,7 +76,6 @@ namespace labacs9
                     t.hour = 0;
                 }
             }
-
             return t;
         }
         static MyTime AddOneHour(MyTime t)
@@ -97,51 +96,52 @@ namespace labacs9
         }
         static string WhatLesson(MyTime mt)
         {
-            if (TimeSinceMidnight(mt) < 28800)
+            int k = TimeSinceMidnight(mt);
+            if (k < 28800)
             {
                 return "пари ще не почалися";
             }
-            if (TimeSinceMidnight(mt) >= 28800 && TimeSinceMidnight(mt) <= 33600)
+            if (k >= 28800 && k <= 33600)
             {
                 return "1-пара";
             }
-            else if (TimeSinceMidnight(mt) > 33600 && TimeSinceMidnight(mt) < 34800)
+            else if (k > 33600 && k < 34800)
             {
                 return "перерва між 1-ю та 2 - ю парами,";
             }
-            else if (TimeSinceMidnight(mt) > 34800 && TimeSinceMidnight(mt) < 39600)
+            else if (k > 34800 && k < 39600)
             {
                 return "2-пара";
             }
-            else if (TimeSinceMidnight(mt) > 39600 && TimeSinceMidnight(mt) < 40800)
+            else if (k > 39600 && k < 40800)
             {
                 return "перерва між 2-ю та 3 - ю парами,";
             }
-            else if (TimeSinceMidnight(mt) > 40800 && TimeSinceMidnight(mt) < 45600)
+            else if (k > 40800 && k < 45600)
             {
                 return "3-пара";
             }
-            else if (TimeSinceMidnight(mt) > 45600 && TimeSinceMidnight(mt) < 46800)
+            else if (k > 45600 && k < 46800)
             {
                 return "перерва між 3-ю та 4 - ю парами,";
             }
-            else if (TimeSinceMidnight(mt) > 46800 && TimeSinceMidnight(mt) < 51600)
+            else if (k > 46800 && k < 51600)
             {
                 return "4-пара";
             }
-            else if (TimeSinceMidnight(mt) > 51600 && TimeSinceMidnight(mt) < 52800)
+            else if (k > 51600 && k < 52800)
             {
                 return "перерва між 4-ю та 5-ю парами,";
             }
-            else if (TimeSinceMidnight(mt) > 52800 && TimeSinceMidnight(mt) < 57600)
+            else if (k > 52800 && k < 57600)
             {
                 return "5-пара";
             }
-            else if (TimeSinceMidnight(mt) > 57600 && TimeSinceMidnight(mt) < 58200)
+            else if (k > 57600 && k < 58200)
             {
                 return "перерва між 5-ю та 6 - ю парами,";
             }
-            else if (TimeSinceMidnight(mt) > 58200 && TimeSinceMidnight(mt) < 63000)
+            else if (k > 58200 && k < 63000)
             {
                 return "6-пара";
             }
@@ -153,13 +153,20 @@ namespace labacs9
             int sec, min, hour;
             int k = 0;
             Console.WriteLine("Введіть значення часу для 1 об`єкту");
-            sec = int.Parse(Console.ReadLine()); min = int.Parse(Console.ReadLine()); hour = int.Parse(Console.ReadLine());
+            hour = int.Parse(Console.ReadLine());
+            min = int.Parse(Console.ReadLine());
+            sec = int.Parse(Console.ReadLine());                
             MyTime myTime = new MyTime(hour, min, sec);
             Console.WriteLine("Введіть значення часу для 2 об`єкту");
-            sec = int.Parse(Console.ReadLine()); min = int.Parse(Console.ReadLine()); hour = int.Parse(Console.ReadLine());
+            hour = int.Parse(Console.ReadLine());
+            min = int.Parse(Console.ReadLine());
+            sec = int.Parse(Console.ReadLine());
             MyTime myTime2 = new MyTime(hour, min, sec);
+            
             while (true)
             {
+                Console.WriteLine(myTime.ToString());
+                Console.WriteLine(myTime2.ToString());
                 Console.WriteLine("1 - перетворити вказаний час у кількість секунд");
                 Console.WriteLine("2 - перетворити кількість секунд, що пройшли від початку доби");
                 Console.WriteLine("3 - додати секунду");
@@ -172,19 +179,22 @@ namespace labacs9
                 switch (k)
                 {
                     case 1:
-                        TimeSinceMidnight(myTime);
+                        Console.WriteLine(TimeSinceMidnight(myTime));
                         break;
                     case 2:
-                        TimeSinceMidnight(TimeSinceMidnight(myTime));
+                        Console.WriteLine(TimeSinceMidnight(TimeSinceMidnight(myTime)).ToString());
                         break;
                     case 3:
-                        Console.WriteLine(AddOneSecond(myTime).ToString());
+                        myTime = AddOneSecond(myTime);
+                        Console.WriteLine(myTime.ToString());
                         break;
                     case 4:
-                        Console.WriteLine(AddOneMinute(myTime).ToString());
+                        myTime = AddOneMinute(myTime);
+                        Console.WriteLine(myTime.ToString());
                         break;
                     case 5:
-                        Console.WriteLine(AddOneHour(myTime).ToString());
+                        myTime = AddOneHour(myTime);
+                        Console.WriteLine(myTime.ToString());
                         break;
                     case 6:
                         Console.WriteLine(TimeSinceMidnight(Difference(myTime, myTime2)).ToString());

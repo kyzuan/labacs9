@@ -9,6 +9,12 @@ namespace labacs9
             public int hour, minute, second;
             public MyTime(int h, int m, int s)
             {
+                if(h > 23)
+                { h = 23; }
+                if(m >= 60)
+                { m = 59; }
+                if(s >= 60)
+                { s = 59; }
                 hour = h; minute = m; second = s;
             }
             public override string ToString()
@@ -150,6 +156,7 @@ namespace labacs9
         public static void DoBlock()
         {
             //
+            int c = 0;
             int sec, min, hour;
             int k = 0;
             Console.WriteLine("Введіть значення часу для 1 об`єкту");
@@ -157,16 +164,13 @@ namespace labacs9
             min = int.Parse(Console.ReadLine());
             sec = int.Parse(Console.ReadLine());                
             MyTime myTime = new MyTime(hour, min, sec);
-            Console.WriteLine("Введіть значення часу для 2 об`єкту");
-            hour = int.Parse(Console.ReadLine());
-            min = int.Parse(Console.ReadLine());
-            sec = int.Parse(Console.ReadLine());
-            MyTime myTime2 = new MyTime(hour, min, sec);
-            
+            MyTime myTime2;
+
+
+
             while (true)
             {
                 Console.WriteLine(myTime.ToString());
-                Console.WriteLine(myTime2.ToString());
                 Console.WriteLine("1 - перетворити вказаний час у кількість секунд");
                 Console.WriteLine("2 - перетворити кількість секунд, що пройшли від початку доби");
                 Console.WriteLine("3 - додати секунду");
@@ -175,6 +179,7 @@ namespace labacs9
                 Console.WriteLine("6 - вернути різницю між двома моментами");
                 Console.WriteLine("7 - дізнатися яка зараз пара");
                 Console.WriteLine("8 - вивести час");
+                Console.WriteLine("9 - переписати значення");
                 k = int.Parse(Console.ReadLine());
                 switch (k)
                 {
@@ -182,7 +187,9 @@ namespace labacs9
                         Console.WriteLine(TimeSinceMidnight(myTime));
                         break;
                     case 2:
-                        Console.WriteLine(TimeSinceMidnight(TimeSinceMidnight(myTime)).ToString());
+                        Console.WriteLine("Введіть кількість секунд");
+                        c = int.Parse(Console.ReadLine());
+                        Console.WriteLine(TimeSinceMidnight(k).ToString());
                         break;
                     case 3:
                         myTime = AddOneSecond(myTime);
@@ -197,13 +204,27 @@ namespace labacs9
                         Console.WriteLine(myTime.ToString());
                         break;
                     case 6:
+                        Console.WriteLine("Введіть значення часу для 2 об`єкту");
+                        hour = int.Parse(Console.ReadLine());
+                        min = int.Parse(Console.ReadLine());
+                        sec = int.Parse(Console.ReadLine());                      
+                        myTime2 = new MyTime(hour, min, sec);
+                        Console.WriteLine(myTime.ToString());
+                        Console.WriteLine(myTime2.ToString());
+                        Console.WriteLine("RESULT: ");
                         Console.WriteLine(TimeSinceMidnight(Difference(myTime, myTime2)).ToString());
                         break;
                     case 7:
                         Console.WriteLine(WhatLesson(myTime));
                         break;
                     case 8:
-                        myTime.ToString();
+                        Console.WriteLine(myTime.ToString());
+                        break;
+                    case 9:
+                        hour = int.Parse(Console.ReadLine());
+                        min = int.Parse(Console.ReadLine());
+                        sec = int.Parse(Console.ReadLine());
+                        myTime = new MyTime(hour, min, sec);
                         break;
                 }
                 Console.ReadKey();

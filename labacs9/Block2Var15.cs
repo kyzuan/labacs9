@@ -61,6 +61,7 @@ namespace labacs9
             }
             
         }
+       
         public static void DoBlock()
         {
             Console.WriteLine("Результат исполнения блока.");

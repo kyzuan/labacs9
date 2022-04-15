@@ -66,7 +66,7 @@ namespace labacs9
         }
         public static void DoBlock()
         {
-            Console.WriteLine("Результат исполнения блока.");
+            Console.WriteLine("Результат виконання.");
             string path = "dataFF.txt";
             ResultsOfBlock(ReadData(path));
             Console.ReadKey();

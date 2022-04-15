@@ -40,23 +40,33 @@ namespace labacs9
         static Student[] ReadData(string path)
         {
             int count = System.IO.File.ReadAllLines(path).Length;
-            Student[] arrayFromStudents = new Student[count];
+            Student[] arrStudents = new Student[count];
             StreamReader read = new StreamReader(path);
-            for (int i = 0; i < arrayFromStudents.Length; i++)
+            for (int i = 0; i < arrStudents.Length; i++)
             {
-                arrayFromStudents[i] = new Student(read.ReadLine());
+                arrStudents[i] = new Student(read.ReadLine());
             }
             read.Close();
-            return arrayFromStudents;
+            return arrStudents;
         }
         static void ResultsOfBlock(Student[] arrayOfStudents)
         {
-            
+            int sum = 0;
+            double avarage = 0;
+            for (int i = 0; i < arrayOfStudents.Length; i++)
+            {
+                sum = int.Parse(arrayOfStudents[i].mathematicsMark.ToString()) + int.Parse(arrayOfStudents[i].physicsMark.ToString()) + int.Parse(arrayOfStudents[i].informaticsMark.ToString());
+                avarage = sum / 3;
+                if (avarage > 4.5)
+                {
+                    Console.WriteLine($"{arrayOfStudents[i].surName} {arrayOfStudents[i].firstName} {arrayOfStudents[i].patronymic} {arrayOfStudents[i].physicsMark} ");
+                }
+            }
 
         }
         public static void DoBlock()
         {
-            Console.WriteLine("Результат исполнения блока.");
+            Console.WriteLine("Результат виконання.");
             string path = "dataFF.txt";
             ResultsOfBlock(ReadData(path));
             Console.ReadKey();

@@ -226,7 +226,9 @@ namespace labacs9
                         sec = int.Parse(Console.ReadLine());
                         myTime = new MyTime(hour, min, sec);
                         break;
+                        //
                 }
+                Console.WriteLine();
                 Console.WriteLine();
                 Console.ReadKey();
                 Console.Clear();

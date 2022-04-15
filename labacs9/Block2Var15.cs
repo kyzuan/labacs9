@@ -52,9 +52,10 @@ namespace labacs9
         }
         static void ResultsOfBlock(Student[] arrayOfStudents)
         {
+            
             for (int i = 0; i < arrayOfStudents.Length; i++)
             {
-                if (arrayOfStudents[i].mathematicsMark >= 3 && arrayOfStudents[i].physicsMark >= 3 && arrayOfStudents[i].informaticsMark >= 3)
+                if (int.Parse(arrayOfStudents[i].mathematicsMark.ToString()) >= 3 && int.Parse(arrayOfStudents[i].physicsMark.ToString()) >= 3 && int.Parse(arrayOfStudents[i].informaticsMark.ToString()) >= 3)
                 {
                     Console.WriteLine($"{arrayOfStudents[i].surName} {arrayOfStudents[i].firstName} {arrayOfStudents[i].patronymic}. Стипендия: {arrayOfStudents[i].scholarship} грн.");
                 }

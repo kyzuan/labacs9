@@ -39,13 +39,14 @@ namespace labacs9
                         goto onemore;
                         break;
                     case '4':
+                        Block2Var7.DoBlock();
+                        Console.Clear();
+                        goto onemore;
                         break;
                     default:
                         break;
                 }
             } while (cho != '0');
-
-
         }
     }
 }

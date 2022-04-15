@@ -55,11 +55,7 @@ namespace labacs9
                 f.nom = Math.Abs(f.nom);
                 f.denom = Math.Abs(f.denom);
                 haveMinus = true;
-            }
-            if (f.denom > f.nom)
-            {
-                res = "Дробь правильная, извлечь целую часть невозможно.";
-            }
+            }         
             int num = (int)(f.nom / f.denom);
             int ostacha = (int)(f.nom % f.denom);
             if (haveMinus == true)

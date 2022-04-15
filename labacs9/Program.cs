@@ -6,6 +6,7 @@ namespace labacs9
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.Default;
             Console.WriteLine("------------------------------------------------------");
             Console.WriteLine("--------------Лаборатоная работа номер 3--------------");
             Console.WriteLine("-------------------Тема: Структуры--------------------");

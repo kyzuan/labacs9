@@ -115,7 +115,7 @@ namespace labacs9
             {
                 return "перерва між 1-ю та 2 - ю парами,";
             }
-            else if (k > 34800 && k < 39600)
+            else if (k >= 34800 && k <= 39600)
             {
                 return "2-пара";
             }
@@ -123,7 +123,7 @@ namespace labacs9
             {
                 return "перерва між 2-ю та 3 - ю парами,";
             }
-            else if (k > 40800 && k < 45600)
+            else if (k >= 40800 && k <= 45600)
             {
                 return "3-пара";
             }
@@ -131,7 +131,7 @@ namespace labacs9
             {
                 return "перерва між 3-ю та 4 - ю парами,";
             }
-            else if (k > 46800 && k < 51600)
+            else if (k >= 46800 && k <= 51600)
             {
                 return "4-пара";
             }
@@ -139,7 +139,7 @@ namespace labacs9
             {
                 return "перерва між 4-ю та 5-ю парами,";
             }
-            else if (k > 52800 && k < 57600)
+            else if (k >= 52800 && k <= 57600)
             {
                 return "5-пара";
             }
@@ -147,7 +147,7 @@ namespace labacs9
             {
                 return "перерва між 5-ю та 6 - ю парами,";
             }
-            else if (k > 58200 && k < 63000)
+            else if (k >= 58200 && k <= 63000)
             {
                 return "6-пара";
             }

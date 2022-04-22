@@ -58,14 +58,29 @@ namespace labacs9
             }         
             int num = (int)(f.nom / f.denom);
             int ostacha = (int)(f.nom % f.denom);
-            if (haveMinus == true)
+            if (num == 0)
             {
-                res = $"-({num}+{ostacha}/{f.denom})";
+                if (haveMinus == false)
+                {
+                    res = $"{ostacha}/{f.denom}";
+                }
+                else
+                {
+                    res = $"-{ostacha}/{f.denom}";
+                }
             }
             else
             {
-                res = $"({num}+{ostacha}/{f.denom})";
+                if (haveMinus == false)
+                {
+                    res = $"{num} + {ostacha}/{f.denom}";
+                }
+                else
+                {
+                    res = $"-{num} + {ostacha}/{f.denom}";
+                }
             }
+            
             return res;
         }
         static double DoubleValue(MyFrac f)
